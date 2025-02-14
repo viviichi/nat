@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <style>
+        /* CSS Internal (Bisa dipisah ke style.css) */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: url('cat.jpg') no-repeat center center/cover;
+            color: white;
+        }
+        .container {
+            padding: 50px 20px;
+        }
+        h1, p, h2 {
+    color: #ff4d6d; /* Warna pink agar lebih jelas */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+        .valentine-box {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 400px;
+            backdrop-filter: blur(5px);
+        }
+        .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+        .btn {
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .yes-btn {
+            background: #ff4d6d;
+            color: white;
+        }
+        .no-btn {
+            background: gray;
+            color: white;
+        }
+        .btn:hover {
+            transform: scale(1.1);
+        }
+        .moments {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .moment {
+    width: 200px; /* Atur ukuran */
+    height: 150px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-in-out;
+}
+
+.moment.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.moment img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+        .message-box {
+            margin-top: 20px;
+        }
+        input {
+            padding: 10px;
+            width: 80%;
+            max-width: 300px;
+            border: none;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .send-btn {
+            background: pink;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Happy Valentine's Day ❤️</h1>
+        <p>A special page for someone special</p>
+
+        <div class="valentine-box">
+            <h2>Natasya, will you be my Valentine? 💕</h2>
+            <div class="buttons">
+                <button class="btn yes-btn" onclick="yesClicked()">Yes 💖</button>
+                <button class="btn no-btn" id="no-btn" onmouseover="moveNoButton()">No 😢</button>
+            </div>
+        </div>
+
+        <div class="valentine-box">
+            <h2>Sweet Moments Together</h2>
+            <div class="moments">
+                <div class="moment">
+                    <img src="moment1.jpg" alt="Sweet Moment 1" class="moment-img">
+                </div>
+                <div class="moment">
+                    <img src="moment2.jpg" alt="Sweet Moment 2" class="moment-img">
+                </div>
+                <div class="moment">
+                    <img src="moment3.jpg" alt="Sweet Moment 3" class="moment-img">
+                </div>
+                <div class="moment">
+                    <img src="moment4.jpg" alt="Sweet Moment 4" class="moment-img">
+                </div>
+            </div>
+            
+
+        <div class="valentine-box">
+            <h2>Special Message</h2>
+            <p>On this special day, I just want to say how much you mean to me. 💗</p>
+            <div class="message-box">
+                <input type="text" id="love-message" placeholder="Write a message for me...">
+                <button class="send-btn" onclick="sendLove()">💌 Send Love</button>
+            </div>
+        </div>
+
+        <p class="footer">Made with ❤️ for someone special</p>
+    </div>
+
+    <script>
+        // JavaScript (Bisa dipisah ke script.js)
+        function yesClicked() {
+            alert("Yayyy! 💖 I love you more!");
+        }
+
+       function moveNoButton() {
+    let noBtn = document.getElementById("no-btn");
+    let maxX = window.innerWidth - noBtn.offsetWidth - 20; // Batas kanan
+    let maxY = window.innerHeight - noBtn.offsetHeight - 20; // Batas bawah
+    let x = Math.floor(Math.random() * maxX);
+    let y = Math.floor(Math.random() * maxY);
+    noBtn.style.position = "absolute";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+
+        function sendLove() {
+            let message = document.getElementById("love-message").value;
+            if (message.trim() === "") {
+                alert("Please write a message first!");
+            } else {
+                alert("Message Sent! 💌 " + message);
+                document.getElementById("love-message").value = "";
+            }
+        }
+
+        // Animasi Sweet Moments
+        document.addEventListener("DOMContentLoaded", function () {
+            let moments = document.querySelectorAll(".moment");
+            moments.forEach((moment, index) => {
+                setTimeout(() => {
+                    moment.classList.add("show");
+                }, index * 500);    
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+ 
