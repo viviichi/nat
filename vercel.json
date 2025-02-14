@@ -1,6 +1,9 @@
 {
-    "routes": [
-      { "src": "/(.*)", "dest": "/tas.html" }
-    ]
-  }
-  
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/tas.html"
+    }
+  ],
+  "public": true
+}
